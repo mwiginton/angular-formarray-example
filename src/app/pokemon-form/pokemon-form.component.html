@@ -1,9 +1,0 @@
-<form [formGroup]="pokemonForm">
-    <div formArrayName="pokemon">
-      <div *ngFor="let email of pokemon.controls; let i = index">
-        <input [formControl]="$any(pokemon.at(i))"/>
-        <button type="button" (click)="removePokemon(i)">Remove</button>
-      </div>
-    </div>
-    <button type="button" (click)="addPokemon()">Add Email</button>
-  </form>
