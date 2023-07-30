@@ -20,6 +20,7 @@ export class EmailFormComponent implements OnInit {
 
   createEmailFormGroup(): FormGroup {
     return this.formBuilder.group({
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
   }

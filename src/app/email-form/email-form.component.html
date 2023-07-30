@@ -1,7 +1,10 @@
 <div class="container">
   <form [formGroup]="emailForm" (ngSubmit)="submitForm()">
     <div formArrayName="emails">
-      <div *ngFor="let email of emailControls; let i = index" [formGroupName]="i" class="email-row">        
+      <div *ngFor="let emailGroup of emailControls; let i = index" [formGroupName]="i" class="email-row">
+        <div class="input-container">
+          <input type="text" formControlName="name" placeholder="Name {{ i + 1 }}" />
+        </div>
         <div class="input-container">
           <input type="email" formControlName="email" placeholder="Email address {{ i + 1 }}" />
         </div>
@@ -11,4 +14,4 @@
     <button type="button" (click)="addEmail()">Add Email</button>
     <button type="submit" [disabled]="!emailForm.valid">Submit</button>
   </form>
-</div>  
+</div>
