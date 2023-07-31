@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="header">Contacts</h1>
   <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-    <div formArrayName="emails">
+    <div formArrayName="contacts">
       <div *ngFor="let contactGroup of contactControls; let i = index" [formGroupName]="i" class="email-row">
         <div class="input-container">
           <input type="text" formControlName="name" placeholder="Name {{ i + 1 }}" />
