@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="header">Contacts</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+    <div formArrayName="emails">
+      <div *ngFor="let contactGroup of contactControls; let i = index" [formGroupName]="i" class="email-row">
+        <div class="input-container">
+          <input type="text" formControlName="name" placeholder="Name {{ i + 1 }}" />
+        </div>
+        <div class="input-container">
+          <input type="email" formControlName="email" placeholder="Email address {{ i + 1 }}" />
+        </div>
+        <button type="button" (click)="removeContact(i)" *ngIf="contactControls.length > 1" class="remove-button">Remove</button>
+      </div>
+    </div>
+    <button type="button" (click)="addContact()">Add Contact</button>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </form>
+</div>
